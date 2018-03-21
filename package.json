@@ -1,0 +1,25 @@
+{
+	"name": "GK",
+	"version": "0.1.0",
+	"private": true,
+	"main": "dist/index.js",
+	"scripts": {
+		"watch": "noderize-scripts watch",
+		"build": "noderize-scripts build",
+		"start": "noderize-scripts start",
+		"format": "noderize-scripts format",
+		"test": "noderize-scripts test",
+		"clean": "noderize-scripts clean"
+	},
+	"noderize": {
+		"languages": "typescript"
+	},
+	"devDependencies": {
+		"@noderize/scripts": "^0.4.3",
+		"web3-typescript-typings": "^0.10.2"
+	},
+	"dependencies": {
+		"@noderize/runtime": "^0.4.3",
+		"web3": "^1.0.0-beta.33"
+	}
+}
