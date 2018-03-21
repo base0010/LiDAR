@@ -1,5 +1,6 @@
 import {contractAddress, contractABI, test_provider}  from '../config/config'
 import Web3 = require('web3')
+import leveldb = require('./leveldb.js')
 import * as config from '../config/config'
 
 let web3 = new Web3(config.provider)
@@ -47,11 +48,20 @@ function logEvents(contractInstance: any, event: string): any {
        return contractInstance.events.Transfer({}, (e,r)=>{
             if(e){console.log(e)}
             if(!e){
-                parseEvent(r)
-                //log to leveldb
-
+                console.log(r)
+                // logEventToLevelDB('somehash',parseEvent(r))
+                // getEventFromLevelDB('somehash')
             }
         })
+}
+
+function logEventToLevelDB(hash: string, event: EventReciept){
+    leveldb.put(hash,event)
+
+}
+
+function getEventFromLevelDB(hash:string){
+    leveldb.get(hash)
 }
 
 interface EventReciept {
