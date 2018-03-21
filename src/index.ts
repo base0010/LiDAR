@@ -45,9 +45,9 @@ function logEvents(contractInstance: any, event: string): any {
 
         //implement event passing
        return contractInstance.events.Transfer({}, (e,r)=>{
-            if(e){console.log(e)}
+            
             if(!e){
-                parseEvent(r)
+               console.log(parseEvent(r))
                 //log to leveldb
 
             }
@@ -70,6 +70,7 @@ function parseEvent(result: any): EventReciept{
                                transactionIndex: result.transactionIndex,
                                returnValues: result.returnValues}
     return field
+    //console.log(field)
 
 }
 
@@ -77,6 +78,7 @@ function parseEvent(result: any): EventReciept{
 
 
 let instance = instantiateContract(customContract)
+console.log(instance)
 logEvents(instance, 'nothing')
 //getPastEvents(instance, 'Transfer',52000000,520000050 )
 //getPastEvents(instance, '')
