@@ -17,7 +17,7 @@ const levelDb = levelup(encoded)
   export async function get (k){
     const value = await levelDb.get(k)
 
-    console.log('value type:', typeof v)  
-    console.log('value:', v) 
+    console.log('value type:', typeof value)  
+    console.log('value:', value) 
     return k
 }

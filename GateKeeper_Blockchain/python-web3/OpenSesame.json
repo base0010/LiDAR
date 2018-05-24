@@ -1,0 +1,363 @@
+{
+  "contractName": "OpenSesame",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "name": "permissions",
+          "type": "string"
+        }
+      ],
+      "name": "updateUser",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "permissions",
+          "type": "string"
+        }
+      ],
+      "name": "UserListUpdate",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b6101c28061001e6000396000f300606060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063b088981914610046575b600080fd5b341561005157600080fd5b6100c0600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506100c2565b005b7fe4b1e866ee63a6c47fd65d08b0712b590940bb013afc342a57585651fe560cc38282604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200180602001828103825283818151815260200191508051906020019080838360005b8381101561015757808201518184015260208101905061013c565b50505050905090810190601f1680156101845780820380516001836020036101000a031916815260200191505b50935050505060405180910390a150505600a165627a7a72305820aa244dbf0a6d6e546d969b8b0154c653d53a4c4a8685487aec6057e995faa5740029",
+  "deployedBytecode": "0x606060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063b088981914610046575b600080fd5b341561005157600080fd5b6100c0600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506100c2565b005b7fe4b1e866ee63a6c47fd65d08b0712b590940bb013afc342a57585651fe560cc38282604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200180602001828103825283818151815260200191508051906020019080838360005b8381101561015757808201518184015260208101905061013c565b50505050905090810190601f1680156101845780820380516001836020036101000a031916815260200191505b50935050505060405180910390a150505600a165627a7a72305820aa244dbf0a6d6e546d969b8b0154c653d53a4c4a8685487aec6057e995faa5740029",
+  "sourceMap": "27:342:0:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "27:342:0:-;;;;;;;;;;;;;;;;;;;;;;;;140:227;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;327:33;342:4;348:11;327:33;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;140:227:0;;:::o",
+  "source": "pragma solidity ^0.4.11; \n\ncontract OpenSesame {\n    event UserListUpdate(\n        address user,\n        string permissions\n    );\n    \n    function updateUser(address user,string permissions) {\n        //well have an empty string for permissions for now but that could be an array eventually it's own type of markdown\n        UserListUpdate(user, permissions);\n    }\n}",
+  "sourcePath": "/home/m/Desktop/GateKeeper_latest/GateKeeper_Blockchain/contracts/OpenSesame.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/home/m/Desktop/GateKeeper_latest/GateKeeper_Blockchain/contracts/OpenSesame.sol",
+      "exportedSymbols": {
+        "OpenSesame": [
+          21
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".11"
+          ]
+        },
+        "id": 1,
+        "name": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            21
+          ],
+          "name": "OpenSesame",
+          "scope": 22
+        },
+        "children": [
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "UserListUpdate"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "user",
+                      "scope": 7,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 2,
+                        "name": "ElementaryTypeName",
+                        "src": "83:7:0"
+                      }
+                    ],
+                    "id": 3,
+                    "name": "VariableDeclaration",
+                    "src": "83:12:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "permissions",
+                      "scope": 7,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 4,
+                        "name": "ElementaryTypeName",
+                        "src": "105:6:0"
+                      }
+                    ],
+                    "id": 5,
+                    "name": "VariableDeclaration",
+                    "src": "105:18:0"
+                  }
+                ],
+                "id": 6,
+                "name": "ParameterList",
+                "src": "73:56:0"
+              }
+            ],
+            "id": 7,
+            "name": "EventDefinition",
+            "src": "53:77:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "updateUser",
+              "payable": false,
+              "scope": 21,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "user",
+                      "scope": 20,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 8,
+                        "name": "ElementaryTypeName",
+                        "src": "160:7:0"
+                      }
+                    ],
+                    "id": 9,
+                    "name": "VariableDeclaration",
+                    "src": "160:12:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "permissions",
+                      "scope": 20,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 10,
+                        "name": "ElementaryTypeName",
+                        "src": "173:6:0"
+                      }
+                    ],
+                    "id": 11,
+                    "name": "VariableDeclaration",
+                    "src": "173:18:0"
+                  }
+                ],
+                "id": 12,
+                "name": "ParameterList",
+                "src": "159:33:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 13,
+                "name": "ParameterList",
+                "src": "193:0:0"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 7,
+                              "type": "function (address,string memory)",
+                              "value": "UserListUpdate"
+                            },
+                            "id": 14,
+                            "name": "Identifier",
+                            "src": "327:14:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 9,
+                              "type": "address",
+                              "value": "user"
+                            },
+                            "id": 15,
+                            "name": "Identifier",
+                            "src": "342:4:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 11,
+                              "type": "string memory",
+                              "value": "permissions"
+                            },
+                            "id": 16,
+                            "name": "Identifier",
+                            "src": "348:11:0"
+                          }
+                        ],
+                        "id": 17,
+                        "name": "FunctionCall",
+                        "src": "327:33:0"
+                      }
+                    ],
+                    "id": 18,
+                    "name": "ExpressionStatement",
+                    "src": "327:33:0"
+                  }
+                ],
+                "id": 19,
+                "name": "Block",
+                "src": "193:174:0"
+              }
+            ],
+            "id": 20,
+            "name": "FunctionDefinition",
+            "src": "140:227:0"
+          }
+        ],
+        "id": 21,
+        "name": "ContractDefinition",
+        "src": "27:342:0"
+      }
+    ],
+    "id": 22,
+    "name": "SourceUnit",
+    "src": "0:369:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {
+    "1515864828632": {
+      "events": {},
+      "links": {},
+      "address": "0x41884904039d92d196ff9e12f2812ac420d90861"
+    },
+    "1515888687171": {
+      "events": {},
+      "links": {},
+      "address": "0xeedbebf6802744f2aca25ceee8c671787b6daad1"
+    }
+  },
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-01-14T00:33:43.321Z"
+}

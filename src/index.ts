@@ -2,8 +2,9 @@ import {contractAddress, contractABI, test_provider}  from '../config/config'
 import Web3 = require('web3')
 import leveldb = require('./leveldb.js')
 import * as config from '../config/config'
+import sqlite = require('./sqlite.js')
 
-let web3 = new Web3(config.provider)
+let web3 = new Web3(config.test_provider)
 
 interface Contract {
     abi: any,
@@ -18,13 +19,18 @@ function instantiateContract(contract: Contract) : any{
     
 }
 
-function getEventList(contractInstance: any){
+function getEventList(contractInstance: any, monitorInstance?: boolean){
         let eventNames = []
         let eventIndex = 0
 
         contractInstance.options.jsonInterface.forEach((interfaceObject, index, array)=>{
             if (interfaceObject.type === 'event')
-                console.log('found event' + interfaceObject.name)
+                console.log('found event ' + interfaceObject.name)
+
+
+                interfaceObject.inputs.forEach((inputObject, index, array)=>{
+                    console.log('input variable name: ' + inputObject.name + ' input type: ' + inputObject.type)
+                })
                 eventNames.push(interfaceObject.name)
                 eventIndex++
             if(eventIndex === array.length)
@@ -42,21 +48,25 @@ function getPastEvents(contractInstance: any, event: string, _fromBlock?: number
     }
  
 
-function logEvents(contractInstance: any, event: string): any {
+function logEvents(contractInstance: any, event?: string): any {
 
         //implement event passing
-       return contractInstance.events.Transfer({}, (e,r)=>{
-            if(e){console.log(e)}
+       return contractInstance.events.UserListUpdate({}, (e,r)=>{
+            if(e){'There was an error listening to an event' + console.log(e); return e;}
             if(!e){
                 console.log(r)
-                // logEventToLevelDB('somehash',parseEvent(r))
-                // getEventFromLevelDB('somehash')
+                console.log(parseEvent(r))
+                 logBlockToDB(r.blockHash, r.blockNumber)
+                 //logEventToDB('somehash',parseEvent(r))
+                 //getEventFromLevelDB('somehash')
             }
         })
 }
-
-function logEventToLevelDB(hash: string, event: EventReciept){
-    leveldb.put(hash,event)
+function logBlockToDB(blockHash: string, blockNumber: IBlock){
+    sqlite.addBlock(blockHash, blockNumber)
+}
+function logEventToDB(event: IEvent){
+    sqlite.addBlock(event)
 
 }
 
@@ -64,29 +74,38 @@ function getEventFromLevelDB(hash:string){
     leveldb.get(hash)
 }
 
-interface EventReciept {
+interface IBlock {
     blockNumber: number,
     blockHash: string,
+    
+}
+
+interface IEvent extends IBlock{
     transactionHash: string,
     transactionIndex: number,
     returnValues: any,
+
 }
 
-function parseEvent(result: any): EventReciept{
 
-    let field: EventReciept = {blockNumber: result.blockNumber,
+
+function parseEvent(result: any): IEvent {
+
+    let field: IEvent = {blockNumber: result.blockNumber,
                                blockHash: result.blockHash,
                                transactionHash: result.transactionHash,
                                transactionIndex: result.transactionIndex,
                                returnValues: result.returnValues}
     return field
-
 }
 
 
 
+//sqlite.createTables()
 
 let instance = instantiateContract(customContract)
-logEvents(instance, 'nothing')
+logEvents(instance)
+getEventList(instance)
+
 //getPastEvents(instance, 'Transfer',52000000,520000050 )
 //getPastEvents(instance, '')
