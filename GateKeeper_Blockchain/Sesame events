@@ -1,0 +1,21 @@
+
+
+//add a new address with params to the contract
+OpenSesame.deployed().then(
+    (instance)=> {
+        instance.updateUser('0x6986c3f25c354f741cd35aebe4797d1668bde920', 'aa')
+        }
+        )
+
+//setup an all events filter
+OpenSesame.deployed().then(
+    (instance)=> {
+        events = instance.allEvnets()
+        }
+        )
+//watch the filter
+events.watch(function(error,result){
+    if (!error){
+        console.log(result)}
+        }
+        )

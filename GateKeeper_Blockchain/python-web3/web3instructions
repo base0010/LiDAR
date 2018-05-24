@@ -1,0 +1,6 @@
+$ virtualenv -p python3 ~/.venv-py3
+$ source ~/.venv-py3/bin/activate
+
+
+
+pip install web3[tester]
