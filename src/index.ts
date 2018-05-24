@@ -1,6 +1,5 @@
 import {contractAddress, contractABI, test_provider}  from '../config/config'
 import Web3 = require('web3')
-import leveldb = require('./leveldb.js')
 import * as config from '../config/config'
 import sqlite = require('./sqlite.js')
 
